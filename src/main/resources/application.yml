@@ -1,0 +1,31 @@
+logging:
+  path: ./logs
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://localhost:5000/eureka/}
+
+server:
+  port: ${PORT:8989}
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      retries: 3
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+---
+spring:
+  profiles: heroku
+eureka:
+  instance:
+    hostname: ${APP_NAME:jalgoarena-queue}.herokuapp.com
+    nonSecurePort: 80
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO
