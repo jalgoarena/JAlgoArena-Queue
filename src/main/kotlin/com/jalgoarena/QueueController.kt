@@ -50,7 +50,7 @@ class QueueController(
                 val future = template.send("submissions", submission)
                 future.addCallback(PublishHandler(submission.submissionId))
 
-                ok(submission.submissionId)
+                ok(submission)
             }
         }
     }
