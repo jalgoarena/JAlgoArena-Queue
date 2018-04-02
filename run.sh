@@ -1,2 +1,2 @@
 #!/bin/bash
-PORT=9999 nohup java -jar jalgoarena-queue-*.jar &
+PORT=8989 nohup java -jar jalgoarena-queue-*.jar &
