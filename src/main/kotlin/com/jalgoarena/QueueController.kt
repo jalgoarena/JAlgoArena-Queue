@@ -73,11 +73,11 @@ class QueueController(
         private val logger = LoggerFactory.getLogger(this.javaClass)
 
         override fun onSuccess(result: SendResult<Int, Submission>?) {
-            logger.info("Published submission [id={}]", submissionId)
+            logger.info("Published successfully submission [submissionId={}]", submissionId)
         }
 
         override fun onFailure(ex: Throwable?) {
-            logger.error("Couldn't publish submission [id={}]", submissionId, ex)
+            logger.error("Error during publishing submission [submissionId={}]", submissionId, ex)
         }
 
     }
