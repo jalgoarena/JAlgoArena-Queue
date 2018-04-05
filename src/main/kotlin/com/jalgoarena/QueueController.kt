@@ -41,7 +41,8 @@ class QueueController(
                         language = judgeRequest.language,
                         problemId = problemId,
                         submissionId = UUID.randomUUID().toString(),
-                        token = token
+                        token = token,
+                        statusCode = "WAITING"
 
                 )
 
