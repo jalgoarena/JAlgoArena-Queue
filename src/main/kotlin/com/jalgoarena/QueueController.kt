@@ -13,6 +13,7 @@ import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.support.SendResult
 import org.springframework.util.concurrent.ListenableFutureCallback
 import org.springframework.web.bind.annotation.*
+import java.time.LocalDateTime
 import java.util.*
 import javax.inject.Inject
 
@@ -42,7 +43,9 @@ class QueueController(
                         problemId = problemId,
                         submissionId = UUID.randomUUID().toString(),
                         token = token,
-                        statusCode = "WAITING"
+                        statusCode = "WAITING",
+                        elapsedTime = -1.0,
+                        submissionTime = LocalDateTime.now().toString()
 
                 )
 

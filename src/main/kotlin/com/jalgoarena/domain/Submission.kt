@@ -10,5 +10,7 @@ data class Submission(
         val submissionId: String,
         val problemId: String,
         val token: String?,
-        val statusCode: String
+        val statusCode: String,
+        val elapsedTime: Double,
+        val submissionTime: String
 )
