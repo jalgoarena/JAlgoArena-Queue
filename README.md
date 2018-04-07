@@ -50,7 +50,6 @@ JAlgoArena Queue is microservice dedicated for publishing incoming submissions t
 ## Running locally
 
 There are two ways to run it - from sources or from binaries.
-- Default port: `8989`
 
 ### Running from binaries
 - go to [releases page](https://github.com/spolnik/JAlgoArena-Queue/releases) and download last app package (JAlgoArena-Queue-[version_number].zip)
