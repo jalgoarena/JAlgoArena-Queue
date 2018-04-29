@@ -31,7 +31,7 @@ class QueueController(
     fun publish(
             @PathVariable problemId: String,
             @RequestBody judgeRequest: JudgeRequest,
-            @RequestHeader("X-Authorization", required = false) token: String? = null
+            @RequestHeader("X-Authorization", required = false) token: String?
     ) = checkUser(token) { user ->
         when {
             user.id != judgeRequest.userId -> unauthorized()
