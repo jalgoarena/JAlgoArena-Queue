@@ -49,7 +49,7 @@ class QueueController(
 
                 )
 
-                logger.info("Publishing submission with id: {}", submission.submissionId)
+                logger.info("Publishing submission [submissionId={}]", submission.submissionId)
 
                 val future = template.send("submissions", submission)
                 future.addCallback(PublishHandler(submission.submissionId))

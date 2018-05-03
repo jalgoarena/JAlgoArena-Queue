@@ -34,7 +34,8 @@ dependencies {
             "com.fasterxml.jackson.core:jackson-annotations:$fasterxml_version",
             "com.fasterxml.jackson.module:jackson-module-kotlin:$fasterxml_version",
             "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
-            "org.jetbrains.kotlin:kotlin-reflect"
+            "org.jetbrains.kotlin:kotlin-reflect",
+            'net.logstash.logback:logstash-logback-encoder:5.1'
 
     testCompile 'junit:junit:4.12',
                 "org.springframework.kafka:spring-kafka-test:$spring_kafka_version",
