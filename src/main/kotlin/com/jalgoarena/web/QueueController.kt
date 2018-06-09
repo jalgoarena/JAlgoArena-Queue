@@ -1,9 +1,8 @@
-package com.jalgoarena
+package com.jalgoarena.web
 
 import com.jalgoarena.domain.JudgeRequest
 import com.jalgoarena.domain.Submission
 import com.jalgoarena.domain.User
-import com.jalgoarena.web.UsersClient
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
