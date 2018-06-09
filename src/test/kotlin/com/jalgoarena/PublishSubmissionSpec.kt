@@ -3,6 +3,7 @@ package com.jalgoarena
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.jalgoarena.domain.JudgeRequest
 import com.jalgoarena.domain.User
+import com.jalgoarena.web.QueueController
 import com.jalgoarena.web.UsersClient
 import com.nhaarman.mockito_kotlin.whenever
 import org.apache.kafka.clients.consumer.ConsumerConfig
