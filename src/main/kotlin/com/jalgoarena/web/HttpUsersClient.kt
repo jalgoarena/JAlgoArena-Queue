@@ -22,7 +22,7 @@ class HttpUsersClient(
         val entity = HttpEntity<HttpHeaders>(headers)
 
         val response = restTemplate.exchange(
-                "jalgoarena-auth/api/user", HttpMethod.GET, entity, User::class.java)
+                "http://jalgoarena-auth/api/user", HttpMethod.GET, entity, User::class.java)
         response.body
     }
 
