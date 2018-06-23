@@ -1,27 +1,34 @@
-language: java
+sudo: required
+language: Java
+services:
+  - docker
 jdk:
-- oraclejdk8
+  - oraclejdk8
 before_install:
-- pip install --user codecov
+  - pip install --user codecov
 after_success:
-- codecov
+  - codecov
 before_cache:
-- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
   directories:
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
 before_deploy:
-- "./gradlew releaseZip"
+  - "./gradlew releaseZip"
 deploy:
-  provider: releases
-  api_key:
-    secure: BQU1hQPRg7E3t5NL0R/JgMXuT9Dha0GUUfYaxs5IvQHJt2dbKSGp1qOETN+8G8YVzHKiB0Fbk29cUL4wRxSsLzr6yCAtREg7xJxNHrIifrt3baxz/MJefatADR0P4ew5FvSijEemR5DEhvzXsA+iqu/BBU6MBj0mzKBP9qAyxqgoroQNeyDuYCLgfgkDiDbhhG7wLmJVIhn67h7JpzMqNz2T3kduUzz/UZSxyDNaTjS82M2tWQWaZKRa146OpulKASeevvEgbtuESb3rAAf1KW3WozvCWwx3REY3FzUpUppx7qnLs6kEm4CvfMwj3UGl2TocMAt8Wke1CASi1uHAFK5HXJjr6rn2/T57EO2fQMHd/bOKoVxDTsMK/uCIq2/WJ2RUQrwhuEMmzi7D1FRYSslVMbSBspkBgJsS/6Ser3tXDCilHWSZ0QjtfpjoLfKb9uJAB69QK5QnwmMq87M4TtmuvQLe2xq3mtYPWhPJ8HNrTC4Nhd66BdmGPOWSzQfWFFfC6C98Nlm0Rw3aLG3AKtBEjVkrYvlZsFJbtFJDFWVaMrDnMbFQxUbU+gd5mcFD24OuU//wsvywn3mZDomwUHYQsWCAKLcUL21OVcPzlFCxXA9+zTlSgw9zLQiAsjrdW34c2VTYJdbQbBSFtm8E3f60hIjNTtCWLFDpFUr4sZA=
-  file_glob: true
-  file: "./build/libs/JAlgoArena-Queue-*.zip"
-  skip_cleanup: true
-  on:
-    repo: spolnik/JAlgoArena-Queue
-    tags: true
-
+  - provider: releases
+    api_key:
+      secure: BQU1hQPRg7E3t5NL0R/JgMXuT9Dha0GUUfYaxs5IvQHJt2dbKSGp1qOETN+8G8YVzHKiB0Fbk29cUL4wRxSsLzr6yCAtREg7xJxNHrIifrt3baxz/MJefatADR0P4ew5FvSijEemR5DEhvzXsA+iqu/BBU6MBj0mzKBP9qAyxqgoroQNeyDuYCLgfgkDiDbhhG7wLmJVIhn67h7JpzMqNz2T3kduUzz/UZSxyDNaTjS82M2tWQWaZKRa146OpulKASeevvEgbtuESb3rAAf1KW3WozvCWwx3REY3FzUpUppx7qnLs6kEm4CvfMwj3UGl2TocMAt8Wke1CASi1uHAFK5HXJjr6rn2/T57EO2fQMHd/bOKoVxDTsMK/uCIq2/WJ2RUQrwhuEMmzi7D1FRYSslVMbSBspkBgJsS/6Ser3tXDCilHWSZ0QjtfpjoLfKb9uJAB69QK5QnwmMq87M4TtmuvQLe2xq3mtYPWhPJ8HNrTC4Nhd66BdmGPOWSzQfWFFfC6C98Nlm0Rw3aLG3AKtBEjVkrYvlZsFJbtFJDFWVaMrDnMbFQxUbU+gd5mcFD24OuU//wsvywn3mZDomwUHYQsWCAKLcUL21OVcPzlFCxXA9+zTlSgw9zLQiAsjrdW34c2VTYJdbQbBSFtm8E3f60hIjNTtCWLFDpFUr4sZA=
+    file_glob: true
+    file: "./build/libs/JAlgoArena-Queue-*.zip"
+    skip_cleanup: true
+    on:
+      repo: spolnik/JAlgoArena-Queue
+      tags: true
+  - provider: script
+    script: bash docker_push
+    on:
+      repo: spolnik/JAlgoArena-Queue
+      tags: true
 

@@ -8,8 +8,8 @@ import org.springframework.kafka.annotation.EnableKafka
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableKafka
-open class QueueApp
+open class JAlgoArenaQueueApp
 
 fun main(args: Array<String>) {
-    SpringApplication.run(QueueApp::class.java, *args)
+    SpringApplication.run(JAlgoArenaQueueApp::class.java, *args)
 }
