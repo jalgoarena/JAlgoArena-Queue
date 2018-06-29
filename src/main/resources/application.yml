@@ -7,8 +7,8 @@ server:
 spring:
   cloud:
     consul:
-      host: ${CONSUL_HOST:localhost}
-      port: ${CONSUL_PORT:8500}
+      discovery:
+        tags: traefik.frontend.rule=PathPrefixStrip:/queue/api
   kafka:
     bootstrap-servers: ${BOOTSTRAP_SERVERS:localhost:9092,localhost:9093,localhost:9094}
     producer:
