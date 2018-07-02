@@ -27,7 +27,7 @@ import org.springframework.test.context.junit4.SpringRunner
 @EmbeddedKafka(partitions = 1, topics = ["submissions"])
 class PublishSubmissionSpec {
 
-    private val fibJudgeRequest = JudgeRequest("source code", USER_ID, "java")
+    private val fibJudgeRequest = JudgeRequest("source code", USER_ID)
 
     @Autowired
     private lateinit var queueController: QueueController

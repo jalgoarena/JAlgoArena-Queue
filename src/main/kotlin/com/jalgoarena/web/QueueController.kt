@@ -38,7 +38,6 @@ class QueueController(
                 val submission = Submission(
                         sourceCode = judgeRequest.sourceCode,
                         userId = judgeRequest.userId,
-                        language = judgeRequest.language,
                         problemId = problemId,
                         submissionId = UUID.randomUUID().toString(),
                         token = token,
