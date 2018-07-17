@@ -14,11 +14,10 @@ import org.springframework.util.concurrent.ListenableFutureCallback
 import org.springframework.web.bind.annotation.*
 import java.time.LocalDateTime
 import java.util.*
-import javax.inject.Inject
 
 @RestController
 class QueueController(
-        @Inject private val usersClient: UsersClient
+        @Autowired private val usersClient: UsersClient
 ) {
 
     private val logger = LoggerFactory.getLogger(this.javaClass)
