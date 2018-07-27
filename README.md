@@ -15,9 +15,9 @@ JAlgoArena Queue is microservice dedicated for publishing incoming submissions t
 
 ## API
 
-#### Sign up
+#### Publish new submission
 
-  _Create a new user_
+  _Submit new submission for chosen problem_
 
 |URL|Method|
 |---|------|
