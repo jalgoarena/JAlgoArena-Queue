@@ -26,9 +26,9 @@ JAlgoArena Queue is microservice dedicated for publishing incoming submissions t
 * **Data Params**
 
   _Submission json for given problem id e.g. `fib`_
-  
+
   `POST /problems/fib/publish`
-  
+
   ```json
   {
     "sourceCode": "<source code>",
@@ -43,15 +43,21 @@ JAlgoArena Queue is microservice dedicated for publishing incoming submissions t
   _You will get confirmation that your solution was submitted_
 
   * **Code:** 200 <br />
-    **Content:** `TBC`
+    **Content:** `{"sourceCode":"<source code>","userId":"1","submissionId":"db01a2ee-fb3b-48a3-b727-47d63b6b6e10","problemId":"fib","token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsInNjb3BlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiamFsZ29hcmVuYS5jb20iLCJpYXQiOjE1MzI2ODUyMDUsImV4cCI6MTUzNTI3NzIwNX0.45Ilu0GnQyBVYprAcgtvPHmq5tdvbwiUZucSRAFDDPU2RYY-N8cDoM8k3gl1i2r4FPV7ECZaHgcc20fZwqj_CQ","statusCode":"WAITING","elapsedTime":-1.0,"submissionTime":"2018-07-27T12:06:23.253"}`
 
+* **Error Response:**
+
+  _In case of wrong credentials access will be forbidden._
+
+  * **Code:** 401 UNAUTHORIZED <br />
 
 * **Sample Call:**
 
   ```bash
   curl --header "Content-Type: application/json" \
+       --header "X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsInNjb3BlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiamFsZ29hcmVuYS5jb20iLCJpYXQiOjE1MzI2ODUyMDUsImV4cCI6MTUzNTI3NzIwNX0.45Ilu0GnQyBVYprAcgtvPHmq5tdvbwiUZucSRAFDDPU2RYY-N8cDoM8k3gl1i2r4FPV7ECZaHgcc20fZwqj_CQ" \
        --data '{"sourceCode":"<source code>","userId":"1"}' \
-       http://localhost:5003/signup
+       http://localhost:5007/problems/fib/publish
   ```
 
 ## Running locally
