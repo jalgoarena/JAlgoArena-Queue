@@ -24,11 +24,9 @@ deploy:
     file: "./build/libs/JAlgoArena-Queue-*.zip"
     skip_cleanup: true
     on:
-      repo: spolnik/JAlgoArena-Queue
       tags: true
   - provider: script
     script: bash docker_push
     on:
-      repo: spolnik/JAlgoArena-Queue
       tags: true
 
