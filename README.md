@@ -3,10 +3,7 @@
 JAlgoArena Queue is microservice dedicated for publishing incoming submissions to Apache Kafka cluster.
 
 - [Introduction](#introduction)
-- [REST API](#rest-api)
-- [Components](#components)
-- [Continuous Delivery](#continuous-delivery)
-- [Infrastructure](#infrastructure)
+- [API](#api)
 - [Running Locally](#running-locally)
 - [Notes](#notes)
 
@@ -16,33 +13,46 @@ JAlgoArena Queue is microservice dedicated for publishing incoming submissions t
 
 ![Component Diagram](https://github.com/spolnik/JAlgoArena-Queue/raw/master/design/component_diagram.png)
 
-## REST API
+## API
 
-|Endpoint|Description|
-|----|---------------|
-|POST /problems/:problemId/publish|Publish submission|
+#### Sign up
 
-## Components
+  _Create a new user_
 
-- [JAlgoArena](https://github.com/spolnik/JAlgoArena)
-- [JAlgoArena UI](https://github.com/spolnik/JAlgoArena-UI)
-- [JAlgoArena Judge](https://github.com/spolnik/JAlgoArena-Judge)
-- [JAlgoArena Auth Server](https://github.com/spolnik/JAlgoArena-Auth)
-- [JAlgoArena API Gateway](https://github.com/spolnik/JAlgoArena-API)
+|URL|Method|
+|---|------|
+|_/problems/:problemId/publish_|`POST`|
 
-## Continuous Delivery
+* **Data Params**
 
-- initially, developer push his changes to GitHub
-- in next stage, GitHub notifies Travis CI about changes
-- Travis CI runs whole continuous integration flow, running compilation, tests and generating reports
-- coverage report is sent to Codecov
+  _Submission json for given problem id e.g. `fib`_
+  
+  `POST /problems/fib/publish`
+  
+  ```json
+  {
+    "sourceCode": "<source code>",
+    "userId": "1"
+  }
+  ```
 
-## Infrastructure
+  > Note: you have to submit token via header - `'X-Authorization': Bearer <token>`
 
-- Xodus (embedded highly scalable database) - http://jetbrains.github.io/xodus/
-- Spring Boot, Spring Cloud
-- Apache Kafka
-- TravisCI - https://travis-ci.org/spolnik/JAlgoArena-Queue
+* **Success Response:**
+
+  _You will get confirmation that your solution was submitted_
+
+  * **Code:** 200 <br />
+    **Content:** `TBC`
+
+
+* **Sample Call:**
+
+  ```bash
+  curl --header "Content-Type: application/json" \
+       --data '{"sourceCode":"<source code>","userId":"1"}' \
+       http://localhost:5003/signup
+  ```
 
 ## Running locally
 
