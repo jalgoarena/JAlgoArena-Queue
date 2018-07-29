@@ -32,7 +32,7 @@ class QueueController(
             @RequestHeader("X-Authorization", required = false) token: String?
     ) = checkUser(token) { user ->
         when {
-            user.id != judgeRequest.userId -> unauthorized()
+            user.id != judgeRequest.userId || token == null -> unauthorized()
             else -> {
                 val submission = Submission(
                         sourceCode = judgeRequest.sourceCode,
@@ -49,7 +49,7 @@ class QueueController(
                 logger.info("Publishing submission [submissionId={}]", submission.submissionId)
 
                 val future = template.send("submissions", submission)
-                future.addCallback(PublishHandler(submission.submissionId))
+                future.addCallback(PublishHandler(submission.submissionId.toString()))
 
                 ok(submission)
             }

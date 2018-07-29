@@ -8,7 +8,7 @@ data class Submission(
         val userId: String,
         val submissionId: String,
         val problemId: String,
-        val token: String?,
+        val token: String,
         val statusCode: String,
         val elapsedTime: Double,
         val submissionTime: String

@@ -39,6 +39,8 @@ dependencies {
             "com.fasterxml.jackson.core:jackson-core:$fasterxml_version",
             "com.fasterxml.jackson.core:jackson-annotations:$fasterxml_version",
             "com.fasterxml.jackson.module:jackson-module-kotlin:$fasterxml_version",
+            "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$fasterxml_version",
+            "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$fasterxml_version",
             "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
             "org.jetbrains.kotlin:kotlin-reflect",
             'net.logstash.logback:logstash-logback-encoder:5.1'
