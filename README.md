@@ -1,4 +1,4 @@
-# JAlgoArena Queue [![Build Status](https://travis-ci.org/spolnik/JAlgoArena-Queue.svg?branch=master)](https://travis-ci.org/spolnik/JAlgoArena-Queue) [![codecov](https://codecov.io/gh/spolnik/JAlgoArena-Queue/branch/master/graph/badge.svg)](https://codecov.io/gh/spolnik/JAlgoArena-Queue) [![GitHub release](https://img.shields.io/github/release/spolnik/jalgoarena-queue.svg)]()
+# JAlgoArena Queue [![Build Status](https://travis-ci.org/jalgoarena/JAlgoArena-Queue.svg?branch=master)](https://travis-ci.org/jalgoarena/JAlgoArena-Queue) [![codecov](https://codecov.io/gh/spolnik/JAlgoArena-Queue/branch/master/graph/badge.svg)](https://codecov.io/gh/spolnik/JAlgoArena-Queue) [![GitHub release](https://img.shields.io/github/release/spolnik/jalgoarena-queue.svg)]()
 
 JAlgoArena Queue is microservice dedicated for publishing incoming submissions to Apache Kafka cluster.
 
